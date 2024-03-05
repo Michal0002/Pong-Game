@@ -34,7 +34,7 @@ def main_menu():
                     gamemode.singleplayer()
                 elif event.key == pygame.K_2:
                     main_menu()
-                elif event.key == pygame.K3 or event.key == pygame.K_ESCAPE:
+                elif event.key == pygame.K_3 or event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
 
