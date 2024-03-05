@@ -31,7 +31,9 @@ def singleplayer():
 
         if ball_position[0] <= 0 or ball_position[0] >= width - ball_size:
             ball_direction[0] *= -1
-
+        if ball_position[1] <= 0 or ball_position[1] >= height - ball_size:
+            ball_direction[1] *= -1
+            
         screen.fill("black")
         pygame.draw.ellipse(screen, "white", (ball_position[0], ball_position[1], ball_size, ball_size))
 
