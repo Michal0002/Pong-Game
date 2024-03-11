@@ -6,6 +6,8 @@ pygame.init()
 width, height = 800, 600
 
 def singleplayer():
+    collision_sound = pygame.mixer.Sound('sounds/ball_sound.wav')
+    round_over_sound = pygame.mixer.Sound('sounds/round_over.wav')
     screen = pygame.display.set_mode((width, height))
 
     ball_size = 20
@@ -70,15 +72,19 @@ def singleplayer():
         #collision with palletes
         if (player_position[1] <= ball_position[1] + ball_size and player_position[1] + player_size[1] >= ball_position[1] and player_position[0] <= ball_position[0] <= player_position[0] +player_size[0]):
             ball_direction[1] *= -1
+            collision_sound.play()
 
         elif (computer_position[1] <= ball_position[1] + ball_size and computer_position[1] + computer_size[1] >= ball_position[1] and computer_position[0] <= ball_position[0] <= computer_position[0] +computer_size[0]):
-            ball_direction[1] *= -1        
+            ball_direction[1] *= -1
+            collision_sound.play()
 
         #bottom edge collisionn
         if ball_position[1] <= 0:
             game_over = True
+            round_over_sound.play()
         elif ball_position[1] >= height - ball_size:
             game_over = True
+            round_over_sound.play()
 
 
         screen.fill("black")
