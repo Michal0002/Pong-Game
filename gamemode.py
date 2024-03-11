@@ -22,6 +22,11 @@ def singleplayer():
     computer_size = (width // 10, 20)
     computer_speed = 5  
     computer_position = [width // 2 - computer_size[0] // 2, 0]
+    computer_reaction_time = 500 * 30
+    elapsed_time = 0
+    player_won = False
+    start_time = pygame.time.get_ticks()
+
 
     timer = pygame.time.Clock()
     game_over = False
@@ -51,10 +56,15 @@ def singleplayer():
         elif keys[pygame.K_RIGHT]:
             if player_position[0] < width - player_size[0]:
                 player_position[0] += player_speed
-        
+        #computer behavior
+        elapsed_time = pygame.time.get_ticks() - start_time
+        if not player_won and elapsed_time >= computer_reaction_time:
+            computer_speed = 1
+            player_won = True
+
         if computer_position[0] + computer_size[0] // 2 < ball_position[0]:
             computer_position[0] += computer_speed
-        elif computer_position[0] + computer_size[0] // 2 > ball_position[0]:
+        elif computer_position[0] + computer_size[0] // 2 > ball_position[0]:               
             computer_position[0] -= computer_speed
 
         #collision with palletes
