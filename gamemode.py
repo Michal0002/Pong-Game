@@ -88,6 +88,11 @@ def singleplayer():
 
 
         screen.fill("black")
+
+        elapsed_seconds = elapsed_time / 1000
+        font = pygame.font.SysFont("Comic Sans MS", 12)
+        timer_text = font.render("Time: {:.2f}s".format(elapsed_seconds), True, (99, 255, 11))
+        screen.blit(timer_text, (width - timer_text.get_width(), height - timer_text.get_height()))
         pygame.draw.ellipse(screen, "white", (ball_position[0], ball_position[1], ball_size, ball_size))
         pygame.draw.rect(screen, "lightblue", (player_position[0], player_position[1], player_size[0], player_size[1]))
         pygame.draw.rect(screen, "white", (computer_position[0], computer_position[1], computer_size[0], computer_size[1]))
