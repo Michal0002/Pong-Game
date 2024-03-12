@@ -8,7 +8,7 @@ pygame.display.set_caption("Pong Game")
 
 pygame.init()
 
-font = pygame.font.SysFont('Arial', 36)
+font = pygame.font.SysFont('Comic Sans MS', 36)
 font_color = (192, 192, 192)
 
 def draw_text(text, x, y):
