@@ -44,7 +44,7 @@ def main_menu():
                 if event.key == pygame.K_1:
                     gamemode.singleplayer()
                 elif event.key == pygame.K_2:
-                    main_menu()
+                    gamemode.multiplayer()
                 elif event.key == pygame.K_3 or event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
@@ -60,7 +60,7 @@ def main_menu():
                         gamemode.singleplayer()
                     elif selected_option == 2:
                         choose_sound.play()
-                        main_menu()
+                        gamemode.multiplayer()
                     elif selected_option == 3:
                         choose_sound.play()
                         pygame.quit()
